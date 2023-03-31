@@ -3,41 +3,44 @@ import {
   FooterImage,
   FooterLink,
   FooterText,
-  RowInline
+  LogoIcon,
+  RowInline,
 } from "./footer.styles";
-
-import {
-  Facebook,
-  Twitter,
-  Instagram,
-} from "@mui/icons-material";
+import { isMobile } from "react-device-detect";
 
 import logo2 from "../../assets/Logo-footer.png";
+import facebook from "../../assets/Facebook-icon.png";
+import twitter from "../../assets/Twitter-icon.png";
+import instagram from "../../assets/Instagram-icon.png";
+
 import { Space } from "../space";
 
 export const Footer = () => {
   return (
-    <FooterContainer>
+    <>
+      <FooterContainer>
         <div>
           <FooterImage src={logo2} alt="logo2" />
-          <Space size={30} />
-          <RowInline>
-            <FooterLink to={'contact/'}>Contact Us</FooterLink>
+          {isMobile ? <Space size={40} /> : <Space size={2.5} test />}
+          <RowInline align={isMobile ? "center" : "left"}>
+            <FooterLink to={"contact/"}>Contact Us</FooterLink>
             <FooterText>About TrendGrabbr</FooterText>
             <FooterText last>Blog</FooterText>
           </RowInline>
         </div>
-        <div style={{ textAlign: "right" }}>
-          <RowInline style={{ justifyContent: "right" }}>
-            <Facebook sx={{ color: "#46556a", fontSize: 60 }} />
-            <Space size={50} horizontal />
-            <Twitter sx={{ color: "#46556a", fontSize: 60 }} />
-            <Space size={50} horizontal />
-            <Instagram sx={{ color: "#46556a", fontSize: 60 }} />
+        {isMobile && <Space size={50} />}
+        <div style={{ textAlign: isMobile ? "center" : "right" }}>
+          <RowInline align={isMobile ? "center" : "right"}>
+            <LogoIcon src={facebook} />
+            {isMobile ? <Space size={30} horizontal /> : <Space size={2} horizontal test />}
+            <LogoIcon src={twitter} />
+            {isMobile ? <Space size={30} horizontal /> : <Space size={2} horizontal test />}
+            <LogoIcon src={instagram} />
           </RowInline>
-          <Space size={30} />
+          {isMobile ? <Space size={50} /> : <Space size={5} test />}
           <FooterText last>© 2022 TrendGrabbr: All rights reserved</FooterText>
         </div>
       </FooterContainer>
+    </>
   );
 };

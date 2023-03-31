@@ -8,6 +8,7 @@ export interface ButtonProps {
   onlyIcon?: boolean;
   disabled?: boolean;
   selected?: boolean;
+  mobile?: boolean;
   icon?: JSX.Element;
   onPress?: MouseEventHandler;
 }

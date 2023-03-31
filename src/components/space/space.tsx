@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-export const Space = styled.div<{ size: number; horizontal?: boolean }>`
-  ${({ size, horizontal }) => {
+export const Space = styled.div<{ size: number; horizontal?: boolean, test?: boolean }>`
+  ${({ size, horizontal, test }) => {
     if (horizontal) {
-      return `width: ${size}px;`;
+      return `width: ${size}${test ? "vw" : "px"};`;
     } else {
-      return `height: ${size}px;`;
+      return `height: ${size}${test ? "vh" : "px"};`;
     }
   }}
 `;

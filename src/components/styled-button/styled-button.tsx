@@ -22,6 +22,7 @@ export const StyledButton = ({
   onlyIcon = false,
   disabled = false,
   selected = true,
+  mobile = false,
   icon,
   onPress,
 }: ButtonProps) => {
@@ -48,7 +49,7 @@ export const StyledButton = ({
       }
       style={
         size == "medium"
-          ? { borderRadius: 5, width: 70, height: 70 }
+          ? { borderRadius: 5, width: "3vw", height: "3vw" }
           : { borderRadius: 5, width: 45, height: 45 }
       }
       disabled={disabled}
@@ -65,8 +66,8 @@ export const StyledButton = ({
       sx={
         selected
           ? {
-              fontSize: 26,
-              fontWeight: "bolder",
+              fontSize: mobile ? 18 : "1vw",
+              fontWeight: mobile ? 500 : "bolder",
               fontFamily: "AnekMalayalam",
               textTransform: "none",
             }
@@ -77,8 +78,12 @@ export const StyledButton = ({
             }
       }
       style={
-        size == "medium"
-          ? { height: 70, width: 200 }
+        variant == "text"
+          ? { width: "fit-content" }
+          : mobile
+          ? { width: "100%" }
+          : size == "medium"
+          ? { height: "2.8vw", width: "9vw" }
           : { height: 45, width: 45 }
       }
     >
