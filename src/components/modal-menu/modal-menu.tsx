@@ -23,6 +23,9 @@ import instagram from "../../assets/Instagram-icon.png";
 
 export const ModalMenu = (props: ModalProps) => {
   const closeAction = () => props.handleClose();
+  const openLogin = () => props.openLogin();
+  const openStarted = () => props.openStarted();
+  const openContact = () => props.openContact();
 
   return (
     <Modal
@@ -57,13 +60,13 @@ export const ModalMenu = (props: ModalProps) => {
             <Space size={40} />
             <ModalOption>Blog</ModalOption>
             <Space size={40} />
-            <ModalOption>Contact Us</ModalOption>
+            <ModalOption onClick={openContact}>Contact Us</ModalOption>
           </MainContainer>
           <BottomContainer>
             <MainContainer>
-              <StyledButton title="Get Started" mobile />
+              <StyledButton title="Get Started" mobile onPress={openStarted}/>
               <Space size={25} />
-              <StyledButton title="LOG IN" mobile variant="text" />
+              <StyledButton title="LOG IN" mobile variant="text" onPress={openLogin} />
               <Space size={50} />
               <RowMiddle>
                 <LogoIcon src={facebook} />

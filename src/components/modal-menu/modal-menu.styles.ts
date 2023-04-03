@@ -20,9 +20,10 @@ export const RowMiddle = styled.div`
 
 export const ModalContainer = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   background-color: #f9fafb;
   position: absolute;
+  overflow-y: scroll;
 `;
 
 export const MainContainer = styled.div`
@@ -31,10 +32,9 @@ export const MainContainer = styled.div`
 `;
 
 export const BottomContainer = styled.div`
-  position: absolute;
-  bottom: 0;
+  margin-top: 70px;
+  margin-bottom: 30px;
   width: 100vw;
-  margin-bottom: 40px;
   text-align: center;
 `;
 

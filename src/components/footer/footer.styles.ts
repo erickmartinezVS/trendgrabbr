@@ -7,7 +7,7 @@ export const RowInline = styled.div<{ align?: string }>`
   justify-content: ${(props) => props.align ? props.align : "left"};
 `;
 
-export const FooterContainer = styled.div`
+export const FooterContainer = styled.div<{headerType: string}>`
   max-width: 100vw;
   background-color: #f9fafb;
   display: flex;

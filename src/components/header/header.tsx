@@ -45,7 +45,6 @@ export const Header = () => {
   const [openLogin, setOpenLogin] = useState<boolean>(false);
   const [openStarted, setOpenStarted] = useState<boolean>(false);
   const [openMenu, setOpenMenu] = useState<boolean>(false);
-  const [heightSearch, setHeightSearch] = useState<number>(0);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -56,15 +55,6 @@ export const Header = () => {
   const handleCloseStarted = () => setOpenStarted(false);
   const handleOpenMenu = () => setOpenMenu(true);
   const handleCloseMenu = () => setOpenMenu(false);
-
-  useEffect(() => {
-    if (document) {
-      let tempNum = (
-        document.querySelector(".searchContainer")! as HTMLInputElement
-      ).offsetHeight;
-      setHeightSearch(tempNum);
-    }
-  }, [document]);
 
   useEffect(() => {
     if (location) {
@@ -78,6 +68,21 @@ export const Header = () => {
 
   const searchPress = () => {
     navigate("/results");
+  };
+
+  const goToContact = () => {
+    handleCloseMenu();
+    navigate("/contact");
+  };
+
+  const openLoginAction = () => {
+    handleCloseMenu();
+    handleOpenLogin();
+  };
+
+  const openStartedAction = () => {
+    handleCloseMenu();
+    handleOpenStarted();
   };
 
   return (
@@ -96,10 +101,15 @@ export const Header = () => {
         </RightMobileHeaderContainer>
       </RowHeaderContainer>
       {headerType === "contact" ? (
-        <HeaderTitle>Contact Us</HeaderTitle>
+        !isMobile && (
+          <>
+            <Space size={10} test />
+            <HeaderTitle>Contact Us</HeaderTitle>
+          </>
+        )
       ) : (
         <>
-          {headerType === "home" && (
+          {headerType === "home" ? (
             <>
               {isMobile ? <Space size={30} /> : <Space size={13.3} test />}
               <HeaderTitle>
@@ -114,8 +124,10 @@ export const Header = () => {
               </HeaderSubTitle>
               {!isMobile && <Space size={9.5} test />}
             </>
+          ) : (
+            <Space size={10} test />
           )}
-          <SearchBarContainer className="searchContainer">
+          <SearchBarContainer>
             <FieldContainer>
               <FieldTitle>STATE</FieldTitle>
               {isMobile ? <Space size={10} /> : <Space size={0.7} test />}
@@ -208,7 +220,13 @@ export const Header = () => {
       )}
       <ModalLogin open={openLogin} handleClose={handleCloseLogin} />
       <ModalStarted open={openStarted} handleClose={handleCloseStarted} />
-      <ModalMenu open={openMenu} handleClose={handleCloseMenu} />
+      <ModalMenu
+        open={openMenu}
+        handleClose={handleCloseMenu}
+        openLogin={openLoginAction}
+        openStarted={openStartedAction}
+        openContact={goToContact}
+      />
     </HeaderContainer>
   );
 };

@@ -29,6 +29,7 @@ import {
 
 import { StyledButton } from "../../components/styled-button";
 import { Space } from "../../components/space";
+import { Footer } from "../../components/footer";
 
 import data from "./data.json";
 import { useNavigate } from "react-router-dom";
@@ -70,7 +71,7 @@ export const Results = () => {
     for (let i = 1; i <= Math.ceil(data.length / cardsPerPage); i++) {
       resp.push(
         <RowInline>
-          {i != 1 && <Space size={30} horizontal />}
+          {i != 1 && <Space size={1.2} horizontal test />}
           <StyledButton
             key={i}
             variant="text"
@@ -102,100 +103,103 @@ export const Results = () => {
                 {value.name} {value.id}
               </CardName>
               <RowInline>
-                <Villa color="primary" sx={{ fontSize: 30 }} />
-                <Space size={10} horizontal />
+                <Villa color="primary" sx={{ fontSize: "1.3vw" }} />
+                <Space size={0.3} horizontal test />
                 <CardText>{value.type}</CardText>
               </RowInline>
               <RowInline>
-                <LocationOn color="primary" sx={{ fontSize: 30 }} />
-                <Space size={5} horizontal />
+                <LocationOn color="primary" sx={{ fontSize: "1.3vw" }} />
+                <Space size={0.1} horizontal test />
                 <CardText>{value.place}</CardText>
               </RowInline>
             </RowInlineCard>
             <RowInline>
               <CardState>{value.state}</CardState>
-              <Space size={15} horizontal />
-              <ArrowUpward color="info" sx={{ fontSize: 40 }} />
+              <Space size={0.6} horizontal test />
+              <ArrowUpward color="info" sx={{ fontSize: "1.7vw" }} />
             </RowInline>
           </RowSpace>
-          <Space size={20} />
+          <Space size={1.6} test />
           <CardDescription>{value.description}</CardDescription>
         </Card>
       ));
   };
 
   return (
-    <ContentContainer>
-      <RowSpace>
-        <RowInline>
-          <ContentLink to={"/"}>Home</ContentLink>
-          <ChevronRight
-            color="primary"
-            sx={{ fontSize: 45, marginInline: 1.5 }}
-          />
-          <ContentText selected>Results</ContentText>
-        </RowInline>
-        <RowInline>
-          <ContentText>{getInfoPages()}</ContentText>
-          <Space size={35} horizontal />
-          <StyledButton
-            onlyIcon
-            icon={<ChevronLeft sx={{ fontSize: 40 }} />}
-            color="secondary"
-            size="small"
-            disabled={currentPage == 1}
-            onPress={pageAction("Subtract")}
-          />
-          <Space size={15} horizontal />
-          <StyledButton
-            onlyIcon
-            icon={<ChevronRight sx={{ fontSize: 40 }} />}
-            color="secondary"
-            size="small"
-            disabled={currentPage * cardsPerPage >= data.length}
-            onPress={pageAction("Add")}
-          />
-        </RowInline>
-      </RowSpace>
-      <Space size={40} />
-      <RowSpace>
-        <RowInline>
-          <SearchText>Your search returned {data.length} results.</SearchText>
-          <Space size={15} horizontal />
-          <SearchTitle>Save this search</SearchTitle>
-        </RowInline>
-        <RowInline>
-          <ContentText>Sort by: Recommended</ContentText>
-          <Space size={10} horizontal />
-          <KeyboardArrowDown color="secondary" sx={{ fontSize: 35 }} />
-        </RowInline>
-      </RowSpace>
-      <Space size={60} />
-      <Divider />
-      {renderData()}
-      <Space size={60} />
-      <ButtonsContainer>
-        <RowInline>
-          <StyledButton
-            onlyIcon
-            icon={<ChevronLeft sx={{ fontSize: 40 }} />}
-            variant="outlined"
-            color="secondary"
-            size="small"
-            disabled={currentPage == 1}
-            onPress={pageAction("Subtract")}
-          />
-          <PagesContainer>{renderButtons()}</PagesContainer>
-          <StyledButton
-            onlyIcon
-            icon={<ChevronRight sx={{ fontSize: 40 }} />}
-            color="secondary"
-            size="small"
-            disabled={currentPage * cardsPerPage >= data.length}
-            onPress={pageAction("Add")}
-          />
-        </RowInline>
-      </ButtonsContainer>
-    </ContentContainer>
+    <>
+      <ContentContainer>
+        <RowSpace>
+          <RowInline>
+            <ContentLink to={"/"}>Home</ContentLink>
+            <ChevronRight
+              color="primary"
+              sx={{ fontSize: "1.8vw", marginInline: "0.5vw" }}
+            />
+            <ContentText selected>Results</ContentText>
+          </RowInline>
+          <RowInline>
+            <ContentText>{getInfoPages()}</ContentText>
+            <Space size={1.5} horizontal test />
+            <StyledButton
+              onlyIcon
+              icon={<ChevronLeft sx={{ fontSize: "1.8vw" }} />}
+              color="secondary"
+              size="small"
+              disabled={currentPage == 1}
+              onPress={pageAction("Subtract")}
+            />
+            <Space size={0.6} horizontal test />
+            <StyledButton
+              onlyIcon
+              icon={<ChevronRight sx={{ fontSize: "1.8vw" }} />}
+              color="secondary"
+              size="small"
+              disabled={currentPage * cardsPerPage >= data.length}
+              onPress={pageAction("Add")}
+            />
+          </RowInline>
+        </RowSpace>
+        <Space size={4} test />
+        <RowSpace>
+          <RowInline>
+            <SearchText>Your search returned {data.length} results.</SearchText>
+            <Space size={0.6} horizontal test />
+            <SearchTitle>Save this search</SearchTitle>
+          </RowInline>
+          <RowInline>
+            <ContentText>Sort by: Recommended</ContentText>
+            <Space size={0.4} horizontal test />
+            <KeyboardArrowDown color="secondary" sx={{ fontSize: 35 }} />
+          </RowInline>
+        </RowSpace>
+        <Space size={5} test />
+        <Divider />
+        {renderData()}
+        <Space size={5} test />
+        <ButtonsContainer>
+          <RowInline>
+            <StyledButton
+              onlyIcon
+              icon={<ChevronLeft sx={{ fontSize: "1.8vw" }} />}
+              variant="outlined"
+              color="secondary"
+              size="small"
+              disabled={currentPage == 1}
+              onPress={pageAction("Subtract")}
+            />
+            <PagesContainer>{renderButtons()}</PagesContainer>
+            <StyledButton
+              onlyIcon
+              icon={<ChevronRight sx={{ fontSize: "1.8vw" }} />}
+              color="secondary"
+              size="small"
+              disabled={currentPage * cardsPerPage >= data.length}
+              onPress={pageAction("Add")}
+            />
+          </RowInline>
+        </ButtonsContainer>
+      </ContentContainer>
+      <Footer />
+    </>
   );
 };

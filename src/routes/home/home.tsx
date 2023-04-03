@@ -7,13 +7,21 @@ import {
   RightContainer,
   RowInline,
 } from "./home.styles";
+import { useNavigate } from "react-router-dom";
 
 import computer from "../../assets/Computer.png";
 
 import { StyledButton } from "../../components/styled-button";
 import { Space } from "../../components/space";
+import { Footer } from "../../components/footer";
 
 export const Home = () => {
+  const navigate = useNavigate();
+
+  const goToContact = () => {
+    navigate("/contact");
+  };
+
   return (
     <>
       <ContentContainer>
@@ -35,7 +43,7 @@ export const Home = () => {
           <RowInline>
             <StyledButton title="LEARN MORE" variant="text" />
             <Space size={1.5} horizontal test />
-            <StyledButton title="CONTACT US" variant="text" />
+            <StyledButton title="CONTACT US" variant="text" onPress={goToContact}/>
           </RowInline>
         </RightContainer>
       </ContentContainer>
@@ -58,9 +66,10 @@ export const Home = () => {
         <RowInline>
           <StyledButton title="LEARN MORE" variant="text" mobile />
           <Space size={15} horizontal />
-          <StyledButton title="CONTACT US" variant="text" mobile />
+          <StyledButton title="CONTACT US" variant="text" mobile onPress={goToContact} />
         </RowInline>
       </ContentMobileContainer>
+      <Footer />
     </>
   );
 };

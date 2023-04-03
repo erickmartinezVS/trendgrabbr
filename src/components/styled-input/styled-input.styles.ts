@@ -5,8 +5,11 @@ export const InputContainer = styled.div`
 `;
 
 export const InputTitle = styled.div`
-  font-size: 22px;
+  font-size: 0.9vw;
   font-weight: 700;
   color: #46556a;
   text-transform: uppercase;
+  @media (max-width: 480px) {
+    font-size: 16px;
+  }
 `;

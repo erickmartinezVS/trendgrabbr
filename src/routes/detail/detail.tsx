@@ -26,6 +26,8 @@ import {
 } from "./detail.styles";
 
 import { Space } from "../../components/space";
+import { Footer } from "../../components/footer";
+
 import { useLocation } from "react-router-dom";
 
 import news1 from "../../assets/news1.png";
@@ -42,7 +44,7 @@ export const Detail = () => {
       <RowSpace>
         <NewsContainer>
           <NewsImage src={news1} />
-          <Space size={20} />
+          <Space size={1.5} test />
           <CardDescription>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt.
@@ -51,7 +53,7 @@ export const Detail = () => {
         </NewsContainer>
         <NewsContainer>
           <NewsImage src={news2} />
-          <Space size={20} />
+          <Space size={1.5} test />
           <CardDescription>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt.
@@ -60,7 +62,7 @@ export const Detail = () => {
         </NewsContainer>
         <NewsContainer>
           <NewsImage src={news3} />
-          <Space size={20} />
+          <Space size={1.5} test />
           <CardDescription>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt.
@@ -69,7 +71,7 @@ export const Detail = () => {
         </NewsContainer>
         <NewsContainer>
           <NewsImage src={news4} />
-          <Space size={20} />
+          <Space size={1.5} test />
           <CardDescription>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt.
@@ -81,56 +83,59 @@ export const Detail = () => {
   };
 
   return (
-    <ContentContainer>
-      <RowInline>
-        <ContentLink to={"/"}>Home</ContentLink>
-        <ChevronRight
-          color="primary"
-          sx={{ fontSize: 45, marginInline: 1.5 }}
-        />
-        <ContentLink to={"/results"}>Results</ContentLink>
-        <ChevronRight
-          color="primary"
-          sx={{ fontSize: 45, marginInline: 1.5 }}
-        />
-        <ContentText selected>{value.name}</ContentText>
-      </RowInline>
-      <Space size={40} />
-      <RowSpace>
-        <RowInlineCard>
-          <CardName>
-            {value.name} {value.id}
-          </CardName>
-          <RowInline>
-            <Villa color="primary" sx={{ fontSize: 30 }} />
-            <Space size={10} horizontal />
-            <CardText>{value.type}</CardText>
-          </RowInline>
-          <RowInline>
-            <LocationOn color="primary" sx={{ fontSize: 30 }} />
-            <Space size={5} horizontal />
-            <CardText>{value.place}</CardText>
-          </RowInline>
-        </RowInlineCard>
+    <>
+      <ContentContainer>
         <RowInline>
-          <CardState>{value.state}</CardState>
-          <Space size={15} horizontal />
-          <ArrowUpward color="info" sx={{ fontSize: 40 }} />
+          <ContentLink to={"/"}>Home</ContentLink>
+          <ChevronRight
+            color="primary"
+            sx={{ fontSize: '1.8vw', marginInline: '0.5vw' }}
+          />
+          <ContentLink to={"/results"}>Results</ContentLink>
+          <ChevronRight
+            color="primary"
+            sx={{ fontSize: '1.8vw', marginInline: '0.5vw' }}
+          />
+          <ContentText selected>{value.name}</ContentText>
         </RowInline>
-      </RowSpace>
-      <Space size={20} />
-      <CardDescription>{value.description}</CardDescription>
-      <Space size={40} />
-      <RowInline>
-        <Tab selected>News</Tab>
-      </RowInline>
-      <Divider />
-      <Space size={40} />
-      {renderNews()}
-      <Space size={30} />
-      <SearchText>
-        Search for another company?<Highlight>Get started</Highlight>it's free
-      </SearchText>
-    </ContentContainer>
+        <Space size={3.5} test />
+        <RowSpace>
+          <RowInlineCard>
+            <CardName>
+              {value.name} {value.id}
+            </CardName>
+            <RowInline>
+              <Villa color="primary" sx={{ fontSize: "1.3vw" }} />
+              <Space size={0.3} horizontal test />
+              <CardText>{value.type}</CardText>
+            </RowInline>
+            <RowInline>
+              <LocationOn color="primary" sx={{ fontSize: "1.3vw" }} />
+              <Space size={0.1} horizontal test />
+              <CardText>{value.place}</CardText>
+            </RowInline>
+          </RowInlineCard>
+          <RowInline>
+            <CardState>{value.state}</CardState>
+            <Space size={0.6} horizontal test />
+            <ArrowUpward color="info" sx={{ fontSize: "1.7vw" }} />
+          </RowInline>
+        </RowSpace>
+        <Space size={1.6} test />
+        <CardDescription>{value.description}</CardDescription>
+        <Space size={3.2} test />
+        <RowInline>
+          <Tab selected>News</Tab>
+        </RowInline>
+        <Divider />
+        <Space size={3.2} test />
+        {renderNews()}
+        <Space size={2.5} test />
+        <SearchText>
+          Search for another company?<Highlight>Get started</Highlight>it's free
+        </SearchText>
+      </ContentContainer>
+      <Footer />
+    </>
   );
 };

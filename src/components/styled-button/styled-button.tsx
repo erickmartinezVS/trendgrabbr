@@ -50,7 +50,7 @@ export const StyledButton = ({
       style={
         size == "medium"
           ? { borderRadius: 5, width: "3vw", height: "3vw" }
-          : { borderRadius: 5, width: 45, height: 45 }
+          : { borderRadius: 5, width: '1.9vw', height: '1.9vw' }
       }
       disabled={disabled}
       onClick={onPress}
@@ -72,7 +72,7 @@ export const StyledButton = ({
               textTransform: "none",
             }
           : {
-              fontSize: 26,
+              fontSize: '1vw',
               fontFamily: "AnekMalayalam",
               textTransform: "none",
             }

@@ -14,7 +14,7 @@ export const HeaderContainer = styled.div<{ backgroundImage: string, headerType:
   @media (max-width: 480px){
     padding-top: 30px;
     padding-inline: 20px;
-    padding-bottom: 100px;
+    padding-bottom: ${(props) => props.headerType === 'home' ? 100 : 20}px;
   }
 `;
 
