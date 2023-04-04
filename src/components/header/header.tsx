@@ -100,13 +100,13 @@ export const Header = () => {
           <Segment sx={{ fontSize: 36, color: "white" }} />
         </RightMobileHeaderContainer>
       </RowHeaderContainer>
-      {headerType === "contact" ? (
-        !isMobile && (
-          <>
-            <Space size={10} test />
-            <HeaderTitle>Contact Us</HeaderTitle>
-          </>
-        )
+      {(headerType === "results" || headerType === "contact" || headerType === "detail") && isMobile ? (
+        <></>
+      ) : headerType === "contact" ? (
+        <>
+          <Space size={10} test />
+          <HeaderTitle>Contact Us</HeaderTitle>
+        </>
       ) : (
         <>
           {headerType === "home" ? (
@@ -204,7 +204,7 @@ export const Header = () => {
             {isMobile && (
               <>
                 <Space size={30} />
-                <StyledButton title="Go" mobile />
+                <StyledButton title="Go" mobile onPress={searchPress} />
               </>
             )}
           </SearchBarContainer>
